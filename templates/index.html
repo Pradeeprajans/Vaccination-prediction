@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./static/style.css">
+    <title>Vaccine Prediction</title>
+    
+</head>
+<body>
+    <div class="container">
+        <h1>Vaccination Prediction</h1>
+        <div class="form-container">
+            <form action="/predict" method="post">
+                <div class="form-group">
+                    <label for="h1n1_concern">How concerned are you about H1N1?</label>
+                    <select id="h1n1_concern" name="h1n1_concern" required>
+                        <option value="0">Not at all concerned</option>
+                        <option value="1">Not very concerned</option>
+                        <option value="2">Somewhat concerned</option>
+                        <option value="3">Very concerned</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="h1n1_knowledge">How much do you know about H1N1?</label>
+                    <select id="h1n1_knowledge" name="h1n1_knowledge" required>
+                        <option value="0">No knowledge</option>
+                        <option value="1">A little knowledge</option>
+                        <option value="2">A lot of knowledge</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="behavioral_antiviral_meds">Have you taken antiviral medications?</label>
+                    <select id="behavioral_antiviral_meds" name="behavioral_antiviral_meds" required>
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="behavioral_avoidance">Have you avoided close contact with others with flu-like symptoms?</label>
+                    <select id="behavioral_avoidance" name="behavioral_avoidance" required>
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="behavioral_face_mask">Have you bought a face mask?</label>
+                    <select id="behavioral_face_mask" name="behavioral_face_mask" required>
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="behavioral_wash_hands">Have you frequently washed hands or used hand sanitizer?</label>
+                    <select id="behavioral_wash_hands" name="behavioral_wash_hands" required>
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="behavioral_large_gatherings">Have you reduced time at large gatherings?</label>
+                    <select id="behavioral_large_gatherings" name="behavioral_large_gatherings" required>
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="behavioral_outside_home">Have you reduced contact with people outside of your household?</label>
+                    <select id="behavioral_outside_home" name="behavioral_outside_home" required>
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="behavioral_touch_face">Have you avoided touching your eyes, nose, or mouth?</label>
+                    <select id="behavioral_touch_face" name="behavioral_touch_face" required>
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="doctor_recc_h1n1">H1N1 vaccine recommended by your doctor?</label>
+                    <select id="doctor_recc_h1n1" name="doctor_recc_h1n1" required>
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="doctor_recc_seasonal">Seasonal flu vaccine recommended by your doctor?</label>
+                    <select id="doctor_recc_seasonal" name="doctor_recc_seasonal" required>
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="chronic_med_condition">Do you have any chronic medical conditions?</label>
+                    <select id="chronic_med_condition" name="chronic_med_condition" required>
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="child_under_6_months">Do you have regular close contact with a child under 6 months?</label>
+                    <select id="child_under_6_months" name="child_under_6_months" required>
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="health_worker">Are you a healthcare worker?</label>
+                    <select id="health_worker" name="health_worker" required>
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="health_insurance">Do you have health insurance?</label>
+                    <select id="health_insurance" name="health_insurance" required>
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="opinion_h1n1_vacc_effective">How effective do you think the H1N1 vaccine is?</label>
+                    <select id="opinion_h1n1_vacc_effective" name="opinion_h1n1_vacc_effective" required>
+                        <option value="1">Not at all effective</option>
+                        <option value="2">Not very effective</option>
+                        <option value="3">Don't know</option>
+                        <option value="4">Somewhat effective</option>
+                        <option value="5">Very effective</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="opinion_h1n1_risk">How risky do you think it is to get H1N1 without the vaccine?</label>
+                    <select id="opinion_h1n1_risk" name="opinion_h1n1_risk" required>
+                        <option value="1">Very low</option>
+                        <option value="2">Somewhat low</option>
+                        <option value="3">Don't know</option>
+                        <option value="4">Somewhat high</option>
+                        <option value="5">Very high</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="opinion_h1n1_sick_from_vacc">How worried are you about getting sick from the H1N1 vaccine?</label>
+                    <select id="opinion_h1n1_sick_from_vacc" name="opinion_h1n1_sick_from_vacc" required>
+                        <option value="1">Not at all worried</option>
+                        <option value="2">Not very worried</option>
+                        <option value="3">Don't know</option>
+                        <option value="4">Somewhat worried</option>
+                        <option value="5">Very worried</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="opinion_seas_vacc_effective">How effective do you think the seasonal flu vaccine is?</label>
+                    <select id="opinion_seas_vacc_effective" name="opinion_seas_vacc_effective" required>
+                        <option value="1">Not at all effective</option>
+                        <option value="2">Not very effective</option>
+                        <option value="3">Don't know</option>
+                        <option value="4">Somewhat effective</option>
+                        <option value="5">Very effective</option>
+                    </select>
+                </div>
+
+                
+                
+                    <div class="form-group">
+                        <label for="opinion_seas_risk">How risky do you think it is to get the seasonal flu without the vaccine?</label>
+                        <select id="opinion_seas_risk" name="opinion_seas_risk" required>
+                            <option value="1">Very low</option>
+                            <option value="2">Somewhat low</option>
+                            <option value="3">Don't know</option>
+                            <option value="4">Somewhat high</option>
+                            <option value="5">Very high</option>
+                        </select>
+                    </div>
+                
+                    <div class="form-group">
+                        <label for="opinion_seas_sick_from_vacc">How worried are you about getting sick from the seasonal flu vaccine?</label>
+                        <select id="opinion_seas_sick_from_vacc" name="opinion_seas_sick_from_vacc" required>
+                            <option value="1">Not at all worried</option>
+                            <option value="2">Not very worried</option>
+                            <option value="3">Don't know</option>
+                            <option value="4">Somewhat worried</option>
+                            <option value="5">Very worried</option>
+                        </select>
+                    </div>
+                
+                    <div class="form-group">
+                        <label for="household_adults">Number of adults in your household:</label>
+                        <select id="household_adults" name="household_adults" required>
+                            <option value="0">Zero</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                    </div>
+                
+                    <div class="form-group">
+                        <label for="household_children">Number of children in your household:</label>
+                        <select id="household_children" name="household_children" required>
+                            <option value="0">Zero</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                            <option value="4">Four</option>
+                        </select>
+                    </div>
+                
+                    <div class="form-group">
+                        <label for="age_group">Age Group:</label>
+                        <select id="age_group" name="age_group" required>
+                            <option value="18 - 34 Years">18 - 34 Years</option>
+                            <option value="35 - 44 Years">35 - 44 Years</option>
+                            <option value="45 - 54 Years">45 - 54 Years</option>
+                            <option value="55 - 64 Years">55 - 64 Years</option>
+                            <option value="65+ Years">65+ Years</option>
+                        </select>
+                    </div>
+                
+                    <div class="form-group">
+                        <label for="education">Education:</label>
+                        <select id="education" name="education" required>
+                            <option value="Less than 12 Years">Less than 12 Years</option>
+                            <option value="12 Years">12 Years</option>
+                            <option value="More than 12 Years">More than 12 Years</option>
+                        </select>
+                    </div>
+                
+                    <div class="form-group">
+                        <label for="race">Race:</label>
+                        <select id="race" name="race" required>
+                            <option value="White">White</option>
+                            <option value="Black">Black</option>
+                            <option value="Hispanic">Hispanic</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                
+                    <div class="form-group">
+                        <label for="sex">Sex:</label>
+                        <select id="sex" name="sex" required>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>
+                    </div>
+                
+                    <div class="form-group">
+                        <label for="income_poverty">Income Poverty:</label>
+                        <select id="income_poverty" name="income_poverty" required>
+                            <option value="Below Poverty">Below Poverty</option>
+                            <option value="<= $75,000, Above Poverty"><= $75,000, Above Poverty</option>
+                            <option value="> $75,000">> $75,000</option>
+                        </select>
+                    </div>
+                
+                    <div class="form-group">
+                        <label for="marital_status">Marital Status:</label>
+                        <select id="marital_status" name="marital_status" required>
+                            <option value="Married">Married</option>
+                            <option value="Not Married">Not Married</option>
+                        </select>
+                    </div>
+                
+                    <div class="form-group">
+                        <label for="rent_or_own">Rent or Own:</label>
+                        <select id="rent_or_own" name="rent_or_own" required>
+                            <option value="Rent">Rent</option>
+                            <option value="Own">Own</option>
+                        </select>
+                    </div>
+                
+                    <div class="form-group">
+                        <label for="employment_status">Employment Status:</label>
+                        <select id="employment_status" name="employment_status" required>
+                            <option value="Employed">Employed</option>
+                            <option value="Not Employed">Not Employed</option>
+                        </select>
+                    </div>
+                
+                    <div class="form-group">
+                        <label for="census_msa">Census MSA:</label>
+                        <select id="census_msa" name="census_msa" required>
+                            <option value="MSA, Not Principle City">MSA, Not Principle City</option>
+                            <option value="MSA, Principle City">MSA, Principle City</option>
+                            <option value="Non-MSA">Non-MSA</option>
+                        </select>
+                    </div>
+                    
+                    <button type="submit" formaction="/predict_h1n1">Predict H1N1 Vaccine</button>
+                    <button type="submit" formaction="/predict_seasonal">Predict Seasonal Vaccine</button>
+                    
+                </form>
+            </div>
+        </div>
+    </body>
+</html>    
+
+                
