@@ -1,0 +1,121 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f9fc; /* Warm off-white background */
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+h1 {
+    text-align: center;
+    color: #004085; /* Calm blue for headings */
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+}
+
+/* Form Container */
+.form-container {
+    padding: 20px;
+}
+
+/* Form Group */
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #495057; /* Subtle dark gray for labels */
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    background-color: #f8f9fa; /* Light gray input background */
+    color: #495057;
+    box-sizing: border-box;
+}
+
+select:focus {
+    border-color: #80bdff;
+    outline: none;
+    box-shadow: 0 0 4px rgba(0, 123, 255, 0.25);
+}
+
+/* Buttons */
+button {
+    width: calc(50% - 10px);
+    padding: 10px;
+    margin: 5px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #28a745; /* Warm green for success */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+button:last-of-type {
+    background-color: #007bff; /* Blue for secondary button */
+}
+
+button:last-of-type:hover {
+    background-color: #0056b3;
+}
+
+/* Links */
+a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Result Pages */
+h1, p {
+    text-align: center;
+}
+
+p {
+    font-size: 1.2rem;
+    margin: 20px 0;
+}
+
+a {
+    display: block;
+    margin: 20px auto;
+    width: 200px;
+    text-align: center;
+    padding: 10px;
+    background-color: #004085; /* Calm blue background */
+    color: #fff;
+    border-radius: 4px;
+}
+
+a:hover {
+    background-color: #002752;
+}
